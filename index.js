@@ -37,7 +37,7 @@ app.get('/mensagens', (req, res) =>{
 app.get('/mensagens/encontra/:id', (req, res) =>{
   const id = +req.params.id - 1;
   
-  const mensagem = getMensagemByID(id);
+  const mensagem = getMensagensById(id);
 
   if(!mensagem){
     res.send("mensagem não encontrada")
@@ -67,7 +67,7 @@ app.post('/mensagens/criar', (req,res)=>{
 app.put('/mensagem/atualiza/:id', (req, res) =>{
   const id = +req.params.id - 1;
   
-  const mensagem = getMensagemByID(id);
+  const mensagem = getMensagensById(id);
 
   const novoTexto = req.body.texto;
   if(!novoTexto){
@@ -83,7 +83,7 @@ app.put('/mensagem/atualiza/:id', (req, res) =>{
 app.put('/mensagem/delete/:id', (req, res) =>{
   const id = +req.params.id - 1;
   
-  const mensagem = getMensagemByID(id);
+  const mensagem = getMensagensById(id);
 
   if(!mensagem){
     res.send('Mensagem não encontrada')
